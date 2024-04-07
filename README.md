@@ -1,56 +1,60 @@
-# WPDC - WordPress Docker Compose
+# Wordpress Feedback Plugin Sample
 
-Easy WordPress development with Docker and Docker Compose.
+This is a sample plugin to demonstrate the functionalities of a post feedback mechanism as required by the assessment.
 
-With this project you can quickly run the following:
+## Changes from the original docker
 
-- [WordPress and WP CLI](https://hub.docker.com/_/wordpress/)
-- [phpMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin/)
-- [MySQL](https://hub.docker.com/_/mysql/)
-
-Contents:
-
-- [Requirements](#requirements)
-- [Configuration](#configuration)
-- [Installation](#installation)
-- [Usage](#usage)
+- Since WP-CLI and Composer were not working for me, I added a `Dockerfile` and modified the `docker-compose.yml` to install them.
+- Added `bash` as the shell.
+- Since I am using `composer`, autoload and vendor files are not gitignored for the time being to make it easy to install the plugin elsewhere.
+- Added PSR-4 Autoloading
 
 ## Requirements
+- Docker Desktop / Docker Compose
+- PHP 8
 
-Make sure you have the latest versions of **Docker** and **Docker Compose** installed on your machine.
-
-Clone this repository or copy the files from this repository into a new folder. In the **docker-compose.yml** file you may change the IP address (in case you run multiple containers) or the database from MySQL to MariaDB.
-
-Make sure to [add your user to the `docker` group](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) when using Linux.
 
 ## Configuration
-
-Copy the example environment into `.env`
-
+- Copy `env.sample` to `.env` 
 ```
-cp env.example .env
+cp env.sample .env
 ```
 
-Edit the `.env` file to change the default IP address, MySQL root password and WordPress database name.
-
-## Installation
-
-Open a terminal and `cd` to the folder in which `docker-compose.yml` is saved and run:
-
+- Run the docker containers
 ```
-docker-compose up
-```
+docker compose up -d
+``` 
 
-This creates two new folders next to your `docker-compose.yml` file.
+or `docker-compose up -d` if you are running an older version.
 
-* `wp-data` – used to store and restore database dumps
-* `wp-app` – the location of your WordPress application
 
-The containers are now built and running. You should be able to access the WordPress installation with the configured IP in the browser address. By default it is `http://127.0.0.1`.
+This creates two new folders next to your docker-compose.yml file.
+
+- `wp-data` – used to store and restore database dumps
+- `wp-app` – the location of your WordPress application
+
+The containers are now built and running. You should be able to access the WordPress installation with the configured IP in the browser address. By default it is http://127.0.0.1.
 
 For convenience you may add a new entry into your hosts file.
 
-Changes the ports, if needed, by editing the `docker-compose.yml` file.
+Changes the ports, if needed, by editing the docker-compose.yml file.
+
+## Development
+
+Shell into the docker container either with the UI or the terminal. Please check `Usage` below.
+
+`cd` into the folder `wp-content/plugins/wp-feedback` and run `composer install`
+
+You can now add more composer libraries if you want to.
+
+#### Directories
+
+The plugin comes with some easy to understand directories inside. 
+
+- `src` This is where the PHP source code is located
+- `assets` Place your JS, CSS or other static assets here
+- `tests` Place the tests here
+
 
 ## Usage
 
@@ -80,26 +84,6 @@ Use `-v` if you need to remove the database volume which is used to persist the 
 
 ```
 docker-compose down -v
-```
-
-### Project from existing source
-
-Copy the `docker-compose.yml` file into a new directory. In the directory you create two folders:
-
-* `wp-data` – here you add the database dump
-* `wp-app` – here you copy your existing WordPress code
-
-You can now use the `up` command:
-
-```
-docker-compose up
-```
-
-This will create the containers and populate the database with the given dump. You may set your host entry and change it in the database, or you simply overwrite it in `wp-config.php` by adding:
-
-```
-define('WP_HOME','http://wp-app.local');
-define('WP_SITEURL','http://wp-app.local');
 ```
 
 ### Creating database dumps
