@@ -28,7 +28,7 @@ class AdminUI {
 		if ( in_array( $post_type, $post_types ) ) {
 			add_meta_box(
 				'wpfb_meta_box',
-				__( 'Feedback Summary', 'textdomain' ), // todo
+				__( 'Feedback Summary', 'wp-feedback' ),
 				[$this, 'render_meta_box_content'],
 				$post_type,
 				'advanced',
@@ -52,15 +52,15 @@ class AdminUI {
         <table class="wpfb_meta_box_table">
             <tbody>
                 <tr>
-                    <td>Total Votes</td>
+                    <td><?= __( 'Total Votes', 'wp-feedback' ); ?></td>
                     <td><?= $feedback['total']; ?></td>
                 </tr>
                 <tr>
-                    <td>Helpful</td>
+                    <td><?= __( 'Helpful', 'wp-feedback' ); ?></td>
                     <td><?= $feedback['helpful']; ?>%</td>
                 </tr>
                 <tr>
-                    <td>Unhelpful</td>
+                    <td><?= __( 'Unhelpful', 'wp-feedback' ); ?></td>
                     <td><?= $feedback['unhelpful']; ?>%</td>
                 </tr>
             </tbody>

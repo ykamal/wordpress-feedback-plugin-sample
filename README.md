@@ -13,12 +13,15 @@ This is a sample plugin to demonstrate the functionalities of a post feedback me
 - Added `bash` as the shell.
 - Since I am using `composer`, autoload and vendor files are not gitignored for the time being to make it easy to install the plugin elsewhere.
 
-## Notable Points / Inspiration
+## Notable Points / Inspirations
 
 - Uses Composer for PSR-4 autoloading
 - Uses various OOP methodlogies
 - Uses PHPUnit for unit testing
+- Creation and deletion of a DB Table upon activation and decativation of the plugin
+- i18n support
 - Please note that the time constraints may have had an impact in the quality of the end result.
+- Ran out of time to integrate a separate testing database
 
 ## Requirements
 - Docker Desktop / Docker Compose

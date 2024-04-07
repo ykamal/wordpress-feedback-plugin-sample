@@ -29,13 +29,15 @@ jQuery(document).ready(function ($) {
 					if (success) {
 						container.data("has-voted", true);
 
-						$('.wpfb-button[data-type="helpful"] span').text(
+						$('.wpfb-button[data-type="helpful"] span.value').text(
 							feedback.helpful
 						);
-						$('.wpfb-button[data-type="unhelpful"] span').text(
-							feedback.unhelpful
-						);
+						$(
+							'.wpfb-button[data-type="unhelpful"] span.value'
+						).text(feedback.unhelpful);
+
 						$(".wpfb-title").text("Thank you for your feedback.");
+
 						btn.addClass("active");
 					}
 				},
