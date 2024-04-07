@@ -7,4 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'WPFB\\' => array($baseDir . '/src'),
+    'PluginTests\\' => array($baseDir . '/tests'),
+    'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
+    'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
+    'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
 );

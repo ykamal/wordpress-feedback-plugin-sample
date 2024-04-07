@@ -2,7 +2,7 @@
 
 This is a sample plugin to demonstrate the functionalities of a post feedback mechanism as required by the assessment.
 
-## Changes from the original docker
+## Changes from the original repository
 
 - Since WP-CLI and Composer were not working for me, I added a `Dockerfile` and modified the `docker-compose.yml` to install them.
 - Added `bash` as the shell.
@@ -55,6 +55,10 @@ The plugin comes with some easy to understand directories inside.
 - `assets` Place your JS, CSS or other static assets here
 - `tests` Place the tests here
 
+
+### Testing
+
+TODO
 
 ## Usage
 
