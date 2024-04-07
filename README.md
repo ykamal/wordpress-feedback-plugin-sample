@@ -16,7 +16,7 @@ This is a sample plugin to demonstrate the functionalities of a post feedback me
 ## Notable Points / Inspirations
 
 - Uses Composer for PSR-4 autoloading
-- Uses various OOP methodlogies
+- Uses various OOP methodlogies and PHPDoc
 - Uses PHPUnit for unit testing
 - Creation and deletion of a DB Table upon activation and decativation of the plugin
 - i18n support
