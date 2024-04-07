@@ -35,11 +35,9 @@ class PublicAjax {
 
         $data = $_POST['data'];
 
-        if(!isset($data['isHelpful'])) wp_send_json_error('Invalid post body');
+        if(!isset($data['postId']) || !isset($data['isHelpful'])) wp_send_json_error('Invalid post body');
 
         $is_helpful = $data['isHelpful'] === "true";
-
-        if(!isset($data['postId'])) wp_send_json_error('Invalid post body');
 
         $post_id = absint($data['postId']);
 
