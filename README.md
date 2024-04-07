@@ -7,7 +7,12 @@ This is a sample plugin to demonstrate the functionalities of a post feedback me
 - Since WP-CLI and Composer were not working for me, I added a `Dockerfile` and modified the `docker-compose.yml` to install them.
 - Added `bash` as the shell.
 - Since I am using `composer`, autoload and vendor files are not gitignored for the time being to make it easy to install the plugin elsewhere.
-- Added PSR-4 Autoloading
+
+## Notable Points / Inspiration
+
+- Uses Composer for PSR-4 autoloading
+- Uses various OOP methodlogies
+- Uses PHPUnit for unit testing
 
 ## Requirements
 - Docker Desktop / Docker Compose
@@ -58,7 +63,7 @@ The plugin comes with some easy to understand directories inside.
 
 ### Testing
 
-TODO
+In your docker container, cd into `wp-content/plugins/wp-feedback` and run `vendor/bin/phpunit`;
 
 ## Usage
 

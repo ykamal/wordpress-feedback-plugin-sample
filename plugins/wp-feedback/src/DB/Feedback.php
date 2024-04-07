@@ -20,6 +20,8 @@ class Feedback {
     {
         if(!$post_id || !$ip) throw new \Exception("add_feedback requires a post ID and IP");
 
+        if($this->has_voted($post_id, $ip)) throw new \Exception("Already voted");
+
         global $wpdb;
 
         $result = $wpdb->insert($this->table_name, [
