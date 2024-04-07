@@ -9,6 +9,7 @@
     padding-top: 48px;
     padding-bottom: 48px;
     font-weight: bold;
+    text-align: center;
 }
 
 .wpfb-title {
@@ -51,4 +52,16 @@
 .wpfb-button:disabled {
     cursor: not-allowed;
     opacity: 0.75;
+}
+
+
+@media screen and (max-width: 640px) {
+    .wpfb-container {
+        flex-direction: column;
+    }
+
+    .wpfb-title {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
 }

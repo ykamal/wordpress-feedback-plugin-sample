@@ -2,6 +2,11 @@
 
 This is a sample plugin to demonstrate the functionalities of a post feedback mechanism as required by the assessment.
 
+![Preview Desktop](./preview/preview-front.png)
+![Preview Mobile](./preview/preview-mobile.png)
+![Preview Admin](./preview/preview-admin.png)
+
+
 ## Changes from the original repository
 
 - Since WP-CLI and Composer were not working for me, I added a `Dockerfile` and modified the `docker-compose.yml` to install them.
