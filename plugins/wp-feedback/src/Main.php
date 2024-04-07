@@ -20,14 +20,14 @@ class Main {
         register_uninstall_hook(WPFB_PLUGIN_FILE, [Manager::class, 'delete_tables']);
 
         // AJAX
-        $public_ajax = new PublicAjax();
+        new PublicAjax();
 
         // UI
         new PublicUI();
         // admin meta boxes
         if(\is_admin()) {
             \add_action('load-post.php', function() {
-                new AdminUi();
+                new AdminUI();
             });
         }
     }
