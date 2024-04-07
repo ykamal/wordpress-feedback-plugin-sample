@@ -1,8 +1,10 @@
-version: '3.9'
+version: "3.9"
 
 services:
   wp:
-    image: wordpress:6.1.1 # https://hub.docker.com/_/wordpress/
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: "${APP_NAME}_wordpress"
     ports:
       - ${IP}:${PORT}:80 # change ip if required
@@ -11,12 +13,14 @@ services:
       - ./wp-app:/var/www/html # Full wordpress project
       #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
       #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+      - ./plugins/wp-feedback/:/var/www/html/wp-content/plugins/wp-feedback
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: "${DB_NAME}"
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: "${DB_ROOT_PASSWORD}"
       WORDPRESS_TABLE_PREFIX: "${WP_TABLE_PREFIX}_"
+      WORDPRESS_DEBUG: true
     depends_on:
       - db
     links:
@@ -41,15 +45,15 @@ services:
     container_name: "${APP_NAME}_database"
     ports:
       - ${IP}:3306:3306 # change ip if required
-    command: [
-        '--default_authentication_plugin=mysql_native_password',
-        '--character-set-server=utf8mb4',
-        '--collation-server=utf8mb4_unicode_ci'
-    ]
+    command:
+      [
+        "--default_authentication_plugin=mysql_native_password",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+      ]
     volumes:
       - ./wp-data:/docker-entrypoint-initdb.d
       - ./db-data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: "${DB_NAME}"
       MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
-

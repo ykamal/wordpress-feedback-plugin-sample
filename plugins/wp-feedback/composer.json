@@ -1,0 +1,17 @@
+{
+  "name": "ykamal/wp-feedback",
+  "description": "A simple WP plugin to gather feedback about a post",
+  "type": "wordpress-plugin",
+  "version": "1.0.0",
+  "autoload": {
+    "psr-4": {
+      "WPFB\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Yousof K"
+    }
+  ],
+  "require": {}
+}
