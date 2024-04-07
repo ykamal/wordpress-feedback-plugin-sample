@@ -4,6 +4,11 @@ namespace WPFB\UI;
 
 use WPFB\DB\Feedback;
 
+/**
+ * class PublicUI
+ * 
+ * Helps render the public front-end components.
+ */
 class PublicUI {
    
     public function __construct() 

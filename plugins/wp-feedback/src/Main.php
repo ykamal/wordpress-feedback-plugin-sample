@@ -12,6 +12,10 @@ use WPFB\UI\PublicUI;
 use WPFB\UI\AdminUI;
 
 class Main {
+
+    /**
+     * Initiates the plugin and its components
+     */
     public static function init() 
     {
         // register table management hooks

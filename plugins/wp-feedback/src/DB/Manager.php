@@ -6,6 +6,9 @@ require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
 use WPFB\Constants;
 
+/**
+ * Database tables manager
+ */
 class Manager {
 
     // !! THESE ARE STATIC FOR SAFETY PURPOSES

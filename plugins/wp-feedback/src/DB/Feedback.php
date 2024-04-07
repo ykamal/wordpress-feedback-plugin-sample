@@ -16,6 +16,19 @@ class Feedback {
         $this->table_name = $wpdb->prefix . Constants::DB_NAME_FB_TRACKER;;
     }
 
+    /**
+     * Adds feedback for a post.
+     *
+     * This function inserts feedback data into the database table.
+     *
+     * @param int    $post_id      The ID of the post for which feedback is being added.
+     * @param string $ip           The IP address of the user giving the feedback.
+     * @param bool   $is_helpful   (Optional) Whether the feedback is helpful or not. Defaults to true.
+     *
+     * @throws \Exception When either post ID or IP address is empty, or if the user has already voted.
+     *
+     * @return bool True on successful insertion, false otherwise.
+     */
     public function add_feedback(int $post_id, string $ip, bool $is_helpful = true)
     {
         if(!$post_id || !$ip) throw new \Exception("add_feedback requires a post ID and IP");
@@ -35,7 +48,18 @@ class Feedback {
     }
 
     /**
-     * get all feedbacks for a post and their percentage
+     * Retrieves feedback statistics for a post.
+     *
+     * This function fetches feedback statistics from the database table based on the provided post ID.
+     *
+     * @param int $post_id The ID of the post for which feedback statistics are being retrieved.
+     *
+     * @throws \Exception When the post ID is empty.
+     *
+     * @return array An associative array containing feedback statistics:
+     *               - 'count_helpful': The count of helpful feedback.
+     *               - 'count_not_helpful': The count of not helpful feedback.
+     *               - 'count_total': The total count of feedback.
      */
     public function get_feedback(int $post_id): array
     {
