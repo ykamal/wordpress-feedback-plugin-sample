@@ -18,6 +18,7 @@ This is a sample plugin to demonstrate the functionalities of a post feedback me
 - Uses Composer for PSR-4 autoloading
 - Uses various OOP methodlogies
 - Uses PHPUnit for unit testing
+- Please note that the time constraints may have had an impact in the quality of the end result.
 
 ## Requirements
 - Docker Desktop / Docker Compose
